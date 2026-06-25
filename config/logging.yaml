@@ -1,0 +1,37 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  standard:
+    format: "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+  console:
+    format: "%(levelname)s | %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: console
+    level: INFO
+    stream: ext://sys.stdout
+  app_file:
+    class: logging.handlers.RotatingFileHandler
+    backupCount: 5
+    encoding: utf-8
+    filename: logs/app.log
+    formatter: standard
+    level: INFO
+    maxBytes: 1048576
+
+root:
+  handlers:
+    - console
+    - app_file
+  level: INFO
+
+loggers:
+  handicraft_export_intelligence:
+    handlers:
+      - console
+      - app_file
+    level: INFO
+    propagate: false

@@ -1,0 +1,7 @@
+scoring:
+  export_scoring: {}
+  amazon_scoring: {}
+  etsy_scoring: {}
+  wholesale_scoring: {}
+  craft_health_index: {}
+  rajasthan_craft_opportunity_index: {}

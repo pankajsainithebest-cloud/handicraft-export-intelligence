@@ -1,0 +1,11 @@
+schema:
+  required_columns:
+    source: "config/default.yaml"
+  no_details_sheet: "No Details"
+
+quality_rules:
+  require_artisan_id: true
+  require_product: true
+  require_district: true
+  allow_empty_email: true
+  allow_empty_mobile: true

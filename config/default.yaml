@@ -1,0 +1,37 @@
+project:
+  name: "Rajasthan Handicraft Export Intelligence Platform"
+  environment: "development"
+
+paths:
+  data_dir: "data"
+  config_dir: "config"
+  docs_dir: "docs"
+  logs_dir: "logs"
+  output_dir: "output"
+  reports_dir: "reports"
+  raw_workbook_dir: "data"
+
+excel:
+  no_details_sheet: "No Details"
+  required_columns:
+    - "S. No."
+    - "ArtisanId"
+    - "Name"
+    - "Father's Name"
+    - "Address (Residence with pin code)"
+    - "Date of Birth"
+    - "Gender"
+    - "Mobile No."
+    - "E-mail ID"
+    - "Product"
+    - "District"
+    - "Image URL"
+    - "Profile URL"
+    - "Scrape Timestamp"
+
+master_datasets:
+  master_artisan: "output/master_artisan.xlsx"
+  master_skill: "output/master_skill.xlsx"
+  master_craft: "output/master_craft.xlsx"
+  master_district: "output/master_district.xlsx"
+  no_details: "output/no_details.xlsx"
