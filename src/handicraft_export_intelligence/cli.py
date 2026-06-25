@@ -6,6 +6,7 @@ import logging
 
 import typer
 
+from handicraft_export_intelligence.ingestion.engine import run_ingestion
 from handicraft_export_intelligence.logging_config import configure_logging
 from handicraft_export_intelligence.settings import load_settings
 
@@ -34,6 +35,20 @@ def info() -> None:
     typer.echo(settings.project.name)
     typer.echo(f"Environment: {settings.project.environment}")
     typer.echo(f"Source data: {settings.paths.raw_workbook_dir}")
+
+
+@app.command()
+def ingest() -> None:
+    """Discover and inventory source workbooks."""
+
+    settings = load_settings()
+    result = run_ingestion(settings)
+    typer.echo("Ingestion complete")
+    typer.echo(f"Workbooks discovered: {len(result.workbook_inventory)}")
+    typer.echo(f"Workbooks processed: {result.successful_workbooks}")
+    typer.echo(f"Workbooks failed: {result.failed_workbooks}")
+    typer.echo(f"Sheets discovered: {len(result.sheet_inventory)}")
+    typer.echo(f"Output directory: {result.output_dir}")
 
 
 @app.command()
